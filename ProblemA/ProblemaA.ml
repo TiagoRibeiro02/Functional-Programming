@@ -1,4 +1,4 @@
-open Z;;
+
 
 (*funções de input que dada uma linha, divide-a pelo espaço e retorna dois inteiros a e b*)
   let line = read_line ();;
@@ -25,6 +25,6 @@ let count2 = ref 0;;
 
 let rec f2 n=
   count2 := !count2 + 1;
-  if n = 0 then 1
-  else if n=1 then 2
+  if n = 0 then Z.one
+  else if n=1 then Z.of_int 2
   else ((((6*n-3)*f2 (n-1)) - ((n-2)*f2 (n-2)))/(n+1))
