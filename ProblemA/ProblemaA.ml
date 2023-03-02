@@ -1,30 +1,26 @@
-open Z
+(*cria uma hash table*)
+let hash = Hashtbl.create 1
 
-(*funções de input que dada uma linha, divide-a pelo espaço e retorna dois inteiros a e b*)
-  let line = read_line ();;
-  let line_parts = String.split_on_char ' ' line;; 
-  let a = int_of_string (List.nth line_parts 0);; 
-  let b = int_of_string (List.nth line_parts 1);;
+(*função de Motzkin limitada entre 0 e 10000, onde os numeros pesquisados vão ser armazenados, podendo assim
+   serem recuperados rapidamente e de forma eficiente*)
+let rec fm n=
+  let (&*) = Z.mul in
+  let (&/) = Z.div in
+  let (&+) = Z.add in
 
-(*função recursiva com a função auxiliar somatorio*)
-(*função recursiva do somatório da equação*)
-let count= ref 0;;
-let rec f1 n=
-  count := !count+1;
-  let rec soma n =
-    let rec soma_aux k n acc =
-      if k > n-2 then acc 
-      else soma_aux (k+1) n (acc+(f1(k)*f1(n-k-1))) in 
-    soma_aux 1 n 0 in
-  if n=0 then 1 
-  else if n=1 then 2
-  else 3* (f1 (n-1)) + (soma (n))
+  if n<0 || n>10000 then failwith "Error" else 
+  if n=0 then Z.one
+  else if n=1 then Z.one
+  else if Hashtbl.mem hash n then Hashtbl.find hash n
+  else begin
+    Hashtbl.add hash n
+     (((Z.of_int (2*n+1) &* fm (n-1)) &+ ((Z.of_int (3*n-3) &* fm (n-2)))) &/ (Z.of_int (n+2)));
 
+    Hashtbl.find hash n
+  end
 
-let count2 = ref 0;;
-
-let rec f2 n=
-  count2 := !count2 + 1;
-  if n = 0 then Z.one
-  else if n=1 then Z.of_int 2
-  else ((((6*n-3)*f2 (n-1)) - ((n-2)*f2 (n-2)))/(n+1))
+  (*função que lê o numero n dado pelo utilizador e dá print ao numero dado pela função*)
+  let main=
+  let n = Scanf.scanf "%d" (fun n -> n)in
+  
+  Printf.printf "%s\n" (Z.to_string (fm (n)))
