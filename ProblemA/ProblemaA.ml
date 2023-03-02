@@ -1,4 +1,4 @@
-
+open Z
 
 (*funções de input que dada uma linha, divide-a pelo espaço e retorna dois inteiros a e b*)
   let line = read_line ();;
