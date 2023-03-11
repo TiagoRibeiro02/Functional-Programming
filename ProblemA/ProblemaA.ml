@@ -1,7 +1,9 @@
 (*Tiago Ribeiro a46346*)
 
 (*Fontes consultadas:
-   *)
+  https://en.wikipedia.org/wiki/Motzkin_number
+  https://v2.ocaml.org/api/Hashtbl.html
+*)
 
 (*cria uma hash table*)
 let hash = Hashtbl.create 1
@@ -27,3 +29,5 @@ let rec fm n=
   let main=
   let n = Scanf.scanf "%d" (fun n -> n)in
   Printf.printf "%s\n" (Z.to_string (fm (n)))
+
+  (*Esquema de como o código funciona*)
