@@ -30,4 +30,4 @@ let rec fm n=
   let n = Scanf.scanf "%d" (fun n -> n)in
   Printf.printf "%s\n" (Z.to_string (fm (n)))
 
-  (*O programa vai receber um numero n, em seguida, o mesmo é utilisado na função de Motzkin (fm)*)
+  (*O programa vai receber um numero n, em seguida, o mesmo é utilisado na função de Motzkin (fm), primeiro é analisado se o número está entre 0 e 10000, caso contrário falha, caso este esteja entre estes valores, *)
