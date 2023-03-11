@@ -1,8 +1,12 @@
+(*Tiago Ribeiro a46346*)
+
+(*Fontes consultadas:
+   *)
+
 (*cria uma hash table*)
 let hash = Hashtbl.create 1
 
-(*função de Motzkin limitada entre 0 e 10000, onde os numeros pesquisados vão ser armazenados, podendo assim
-   serem recuperados rapidamente e de forma eficiente*)
+(*função de Motzkin limitada entre 0 e 10000, onde os numeros pesquisados vão ser armazenados, podendo assim serem recuperados rapidamente e de forma eficiente*)
 let rec fm n=
   let (&*) = Z.mul in
   let (&/) = Z.div in
@@ -19,8 +23,7 @@ let rec fm n=
     Hashtbl.find hash n
   end
 
-  (*função que lê o numero n dado pelo utilizador e dá print ao numero dado pela função*)
+  (*função que lê o numero n dado pelo utilizador e dá print ao numero colculado pela função de Motzkin*)
   let main=
   let n = Scanf.scanf "%d" (fun n -> n)in
-  
   Printf.printf "%s\n" (Z.to_string (fm (n)))
