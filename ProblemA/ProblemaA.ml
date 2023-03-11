@@ -30,4 +30,4 @@ let rec fm n=
   let n = Scanf.scanf "%d" (fun n -> n)in
   Printf.printf "%s\n" (Z.to_string (fm (n)))
 
-  (*Esquema de como o código funciona*)
+  (*O programa vai receber um numero n, em seguida, o mesmo é utilisado na função de Motzkin (fm)*)
