@@ -3,6 +3,8 @@
 (*Fontes consultadas:
   https://en.wikipedia.org/wiki/Motzkin_number
   https://v2.ocaml.org/api/Hashtbl.html
+  https://dsheets.github.io/codoc/zarith.1.3/z/
+  https://chat.openai.com/chat (usado para ajudar num problema inicial, nomeadamente na redução da função)
 *)
 
 (*cria uma hash table*)
@@ -30,4 +32,4 @@ let rec fm n=
   let n = Scanf.scanf "%d" (fun n -> n)in
   Printf.printf "%s\n" (Z.to_string (fm (n)))
 
-  (*O programa vai receber um numero n, em seguida, o mesmo é utilisado na função de Motzkin (fm), primeiro é analisado se o número está entre 0 e 10000, caso contrário falha, caso este esteja entre estes valores, caso n seja 0 ou 1 o valor dado pela função é 1, caso contrário,  *)
+  (*O programa vai receber um numero n, em seguida, o mesmo é utilisado na função de Motzkin (fm), primeiro é analisado se o número está entre 0 e 10000, caso contrário falha, caso este esteja entre estes valores, caso n seja 0 ou 1 o valor dado pela função é 1, caso contrário, vai verificar que o valor já está presente na hash table, caso esteja devolve o seu valor, caso contrario é então aplicada a função de Motzkin, onde os valores dados pela mesma vão sendo adicionados à hash table, permitindo assim que quando ocorra a recursividade, os valores sejam recuperados de uma forma rapida, no final vai dar print ao valor esperado*)
