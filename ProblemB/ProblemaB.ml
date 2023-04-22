@@ -20,4 +20,5 @@ let cut_cake n prices =
   dp.(n).(n), cuts
 
   let main=
-  
+  let n = read_int() (* leitura do tamanho do bolo *)
+  let m = read_int() (* leitura do número de tamanhos de fatias *)
