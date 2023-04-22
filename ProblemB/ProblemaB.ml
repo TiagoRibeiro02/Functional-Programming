@@ -18,3 +18,6 @@ let cut_cake n prices =
   in
   let cuts = find_cuts n n [] in
   dp.(n).(n), cuts
+
+  let main=
+  
