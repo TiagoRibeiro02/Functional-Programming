@@ -1,6 +1,6 @@
   let main=
-  let n = read_int() (* leitura do tamanho do bolo *)
-  let m = read_int() (* leitura do número de tamanhos de fatias *)
+  let n = Scanf.scanf "%d" (fun n -> n) (* leitura do tamanho do bolo *)
+  let m = Scanf.scanf "%d" (fun m -> m) (* leitura do número de tamanhos de fatias *)
   (* leitura dos tamanhos e preços das fatias *)
   let fatias = Array.make m (0, 0)
   for i = 0 to m-1 do
