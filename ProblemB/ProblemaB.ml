@@ -32,4 +32,4 @@ if n <= Array.length dp - 1 then
   let lucro_maximo = dp.(n) in
   Printf.printf "%d\n" lucro_maximo
 else
-  Printf.printf "Erro\n"
+  Printf.printf "Error\n"
