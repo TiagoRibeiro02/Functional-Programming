@@ -24,7 +24,6 @@ let dp = Array.make (n+1) 0;;
 for j = 0 to m-1 do
   let tamanho, preco = tp_fatias.(j) in
   for i = tamanho to n do
-    Printf.printf "%d\n" i in
     dp.(i) <- max dp.(i) (dp.(i-tamanho) + preco)
   done
 done;;
@@ -37,7 +36,8 @@ else
   Printf.printf "Error\n"
 
 (*
-  O programa vai receber o n sendo este o tamanho do bolo e m o numero de tamanhos de fatias, em seguida vai ler os tamanhos e preços de cada fatia, dando erro caso os valores não estejam dentro do limite 0 e 10000 ou caso m seja maior que n. 
-  Depois vai criar um vetor "dp" com tamanho n+1 com o objetivo de guardar o lucro máximo calculado, sendo preenchido com zeros ao inicio.
-  O programa vai, para cada fatia vai iterar sobre cada tamanho, e devolver o maximo entre o valor i calculado anteriormente e o valor do i atual, por exemplo ao inicio dp(0)=0
+  O programa vai receber o "n" sendo este o tamanho do bolo e "m" o número de tamanhos de fatias, em seguida vai ler os tamanhos e preços de cada fatia, dando erro caso os valores não estejam dentro do limite 0 e 10000 ou caso "m" seja maior que "n".
+ Depois vai criar um vetor "dp" com tamanho n+1 com o objetivo de guardar o lucro máximo calculado, sendo preenchido com    zeros ao início.
+ O programa vai, para cada fatia, vai iterar sobre cada tamanho, e devolver o máximo entre o valor "i" calculado anteriormente e o valor do "i" atual, por exemplo, e usando o exemplo dado no enunciado, ao início dp(0)=0 e dp(1)=1 tamanho = 1 logo i = 1, dp(1-1)+2=0+2=2, logo dp(1)=2 em seguida i=2 calcula o máximo entre dp(2)=0 e dp(2-1)+2=2+2=4 logo dp(2)=4, quando "j" é incrementado, vai repetir o ciclo, mas desta vez dp(i) já terá valores para todos os i's e como o tamanho está na posição seguinte, ou seja, pelo exemplo, tamanho=2 logo "i" ira analisar entre dp(2) calculado na iteração anterior e dp(1)+preço e guardar o máximo entre esses valores, fazendo este ciclo até à última fatia, sendo que no final teremos dp(n)=lucro máximo.
+ Finalmente vai dar print ao lucro máximo, tendo o cuidado de ver se "n" está dentro do intervalo valido.
 *)
