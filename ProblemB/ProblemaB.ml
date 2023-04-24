@@ -12,7 +12,7 @@ let m = read_int();; (* numero de tamanhos de fatias *)
 
 (* tamanho e preço das fatias *)
 let precos = Array.make m (0, 0);;
-if n,m<0 || n,m>10000 || m > n then failwith "Error" else
+if n<0 || n>10000 || m<0 || m>10000 || m > n then failwith "Error" else
 for x = 0 to m-1 do
   let tamanho, preco = Scanf.sscanf (read_line()) "%d %d" (fun i j -> (i, j)) in
   precos.(x) <- (tamanho, preco)
