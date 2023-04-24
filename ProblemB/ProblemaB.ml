@@ -3,6 +3,7 @@
 (*Fontes consultadas:
   https://pt.wikipedia.org/wiki/Problema_da_mochila
   https://noic.com.br/materiais-informatica/curso/dp-02/
+  https://v2.ocaml.org/api/Stdlib.html
   https://chat.openai.com/chat (usado para ajudar com erro no print do lucro maximo)
 *)
 
