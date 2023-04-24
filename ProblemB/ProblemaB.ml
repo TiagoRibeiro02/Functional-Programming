@@ -1,3 +1,12 @@
+(*Tiago Ribeiro a46346*)
+
+(*Fontes consultadas:
+  https://pt.wikipedia.org/wiki/Problema_da_mochila
+  https://noic.com.br/materiais-informatica/curso/dp-02/
+  https://chat.openai.com/chat (usado para ajudar com erro no print do lucro maximo)
+*)
+
+
 let n = read_int();; (* tamanho do bolo *)
 let m = read_int();; (* numero de fatias *)
 
