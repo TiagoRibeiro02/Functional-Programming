@@ -21,13 +21,21 @@ for x = 0 to m-1 do
 done;;
 
 (* vetor dp que vai guardar o lucro máximo calculado *)
-let dp = Array.make (n+1) 0;;
+(*let dp = Array.make (n+1) 0;;
 for j = 0 to m-1 do
   let tamanho, preco = tp_fatias.(j) in
   for i = tamanho to n do
     dp.(i) <- max dp.(i) (dp.(i-tamanho) + preco)
   done
-done;;
+done;;*)
+
+let rec l_max i m =
+  if (i != n+1) then 
+    dp(i) = lmax (i+1) m
+    for j = 0 to Array.length tp_fatias - 1 do
+    let tamanho, preco = tp_fatias.(j) in
+    if(m >= tamanho)then
+      dp.(i) <- max dp.(i) (l_max((i+1) (m-tamanho)) + preco)
 
 (* print do lucro máximo *)
 if n <= Array.length dp - 1 then
