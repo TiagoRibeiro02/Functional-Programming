@@ -7,12 +7,9 @@
   https://chat.openai.com/chat (usado para ajudar com erro no print do lucro maximo)
 *)
 
-(* tamanho do bolo *)
 let n = read_int();;
-(* numero de tamanhos de fatias *) 
-let m = read_int();; 
+let m = read_int();;
 
-(* tamanho e preço das fatias *)
 let tp_fatias = Array.make m (0, 0);;
 if n<0 || n>10000 || m<0 || m>10000 || m > n then failwith "Error" else
 for x = 0 to m-1 do
@@ -20,21 +17,21 @@ for x = 0 to m-1 do
   tp_fatias.(x) <- (tamanho, preco)
 done;;
 
-(* vetor dp que vai guardar o lucro máximo calculado *)
 let dp = Array.make (n+1) 0;;
-for j = 0 to m-1 do
-  let tamanho, preco = tp_fatias.(j) in
-  for i = tamanho to n do
-    dp.(i) <- max dp.(i) (dp.(i-tamanho) + preco)
-  done
-done;;
 
-(* print do lucro máximo *)
-if n <= Array.length dp - 1 then
-  let lucro_maximo = dp.(n) in
-  Printf.printf "%d\n" lucro_maximo
-else
-  Printf.printf "Error\n"
+let rec l_max i m =
+  if i != n+1 then 
+    let result = l_max (i+1) m in
+    for j = 0 to Array.length tp_fatias - 1 do
+      let tamanho, preco = tp_fatias.(j) in
+      if m >= tamanho then
+        dp.(i) <- max dp.(i) (result + preco)
+      else dp.(i)
+    done
+  else 0 in
+
+let lucro_maximo = l_max 1 m in
+Printf.printf "%d\n" lucro_maximo
 
 (*
   O programa vai receber o "n" sendo este o tamanho do bolo e "m" o número de tamanhos de fatias, em seguida vai ler os tamanhos e preços de cada fatia, dando erro caso os valores não estejam dentro do limite 0 e 10000 ou caso "m" seja maior que "n".
