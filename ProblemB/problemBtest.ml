@@ -23,10 +23,8 @@ let rec l_max i m =
   if i != n+1 then 
     let result = l_max (i+1) m in
     for j = 0 to Array.length tp_fatias - 1 do
-      let tamanho, preco = tp_fatias.(j) in
-      if m >= tamanho then
-        dp.(i) <- max dp.(i) (result + preco)
-      else dp.(i)
+      let tamanho, preco = tp_fatias.(j) 
+        dp.(j) <- max dp.(j) (result + preco)
     done
   else 0 in
 
